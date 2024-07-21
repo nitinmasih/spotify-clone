@@ -5,7 +5,7 @@ import { albumsData, assets, songsData } from '../assets/frontend-assets/assets'
 import { PlayerContext } from '../context/PlayerContext'
 
 const DisplayAlbum = () => {
-
+  
   const { id } = useParams()
   const albumData = albumsData[id]
   const {playWithId} = useContext(PlayerContext)
@@ -19,12 +19,13 @@ const DisplayAlbum = () => {
           <p>Playlist</p>
           <h2 className='text-5xl font-bold mb-4 md:text-7xl '>{albumData.name}</h2>
           <h1>{albumData.desc}</h1>
-          <p className="mt-1 ">
+          <p className="mt-2 ">
             <img className='inline-block' src={assets.spotify_logo} alt="" />
-            <b className='ml-1'>Spotify</b>  <span className="flex gap-2">
-              <li>13,155,233 likes</li>
-              <li><b>50 Songs</b></li>
-              <span>about 2hr ago</span>
+            <b className='ml-1'>Spotify</b> 
+             <span className="flex gap-3 mt-3">
+              <li><span className='ml-[-12px]'>133k likes</span></li>
+              <li className='ml-3'><b className='ml-[-12px]'>50 Songs</b></li>
+              <span className='ml-2'>about 2hr ago</span>
             </span>
 
           </p>
@@ -38,7 +39,7 @@ const DisplayAlbum = () => {
       </div>
       <hr />
       {songsData.map((item, index) => (
-        <div onClick={()=>{playWithId(item.id)}} key={index} className='grid grid-cols-3 sm:grid-cols-4 gap-3 p-2 items-center text-[#a7a7a7] hover:bg-[#ffffff2b]'>
+        <div onClick={()=>{playWithId(item.id)}} key={index} className='grid grid-cols-3 sm:grid-cols-4 gap-3 p-2 items-center text-[#a7a7a7] cursor-pointer hover:bg-[#ffffff2b]'>
           <p className="text-white flex items-center"  >
             <b className='mr-4 text-[#a7a7a7]'>{index + 1}</b>
             <img src={item.image} alt="" className="inline w-6 h-6 mr-3" />
